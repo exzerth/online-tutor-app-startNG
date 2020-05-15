@@ -9,7 +9,7 @@ router.post("/signup", userController.signup);
 
 router.post("/login", userController.login);
 
-router.get("/", userController.getAllUser);
+router.get("/", checkAuth, userController.getAllUser);
 
 router.delete("/:userId", userController.deleteUser);
     
