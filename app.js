@@ -36,7 +36,8 @@ app.use((error, req, res, next) => {
 mongoose.connect("mongodb+srv://Gandhi:RGandhi@cluster0-hnuxn.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(_result => {
 console.log("Database connected");
-app.listen(3000);
+let port_number = app.listen(process.env.PORT || 3000);
+app.listen(port_number);
 }).catch(err => console.log(err));
 
 app.use((req, res, next) => {
