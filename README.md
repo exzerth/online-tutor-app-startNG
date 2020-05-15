@@ -1,3 +1,3 @@
 # online-tutor-app-startNG
 
-Heroku Link: gandhi-tutor0app.herokuapp.com
+Heroku Link: https://gandhi-tutor0app.herokuapp.com/
