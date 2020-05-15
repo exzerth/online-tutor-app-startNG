@@ -3,16 +3,19 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 const categoryRoutes = require("./api/routes/category");
-const tutorRoutes = require("./api/routes/tutor");
 const lessonRoutes = require("./api/routes/lesson");
 const userRoutes = require("./api/routes/user");
+const subjectRoutes = require("./api/routes/subject");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+
 
 app.use("/user", userRoutes);
 app.use("/category", categoryRoutes);
-app.use("/tutor", tutorRoutes);
+app.use("/subject", subjectRoutes);
 app.use("/lesson", lessonRoutes);
 
 app.use((req, res, next) => {

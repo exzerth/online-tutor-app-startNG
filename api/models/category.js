@@ -2,11 +2,8 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const categorySchema = new schema({
-    class: {
-        type: String,
-        require: true
-    },
-    subject: {
+    _id: mongoose.Schema.Types.ObjectId,
+    category: {
         type: String,
         require: true
     }

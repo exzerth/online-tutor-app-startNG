@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
-const categorySchema = new schema({
+const userSchema = new schema({
+    _id: mongoose.Schema.ObjectId,
     fullname: {
         type: String,
         require: true
     },
     email: {
         type: String,
-        require: true
+        require: true,
+        unique: true,
+        match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
     },
     password: {
         type: String,
@@ -16,9 +19,9 @@ const categorySchema = new schema({
     },
     role: {
         type: String,
-        enum: ["admin", "tutor", "student"], default: "student",
-        require: true
+        default: "student",
+        enum: ["admin", "tutor", "student"],
     },
 }, {timestamps: true});
 
-module.exports = mongoose.model("User", categorySchema);
+module.exports = mongoose.model("User", userSchema);
