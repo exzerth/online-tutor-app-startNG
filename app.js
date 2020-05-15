@@ -19,7 +19,7 @@ app.use("/subject", subjectRoutes);
 app.use("/lesson", lessonRoutes);
 
 app.use((req, res, next) => {
-    const error = new Error("Not Found");
+    const error = new Error("No Request");
     error.status = 404;
     next(error);
 })
