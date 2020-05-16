@@ -1,0 +1,96 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Online Tutor App",
+        "description": "A simple web app for online classes",
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "basePath": "",
+    "tags": [
+        {
+            "name": "Online Tutor",
+            "description": "For Learners"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/signup": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Users can sign up",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "To create a new user",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to authenticate"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Users can login",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "user": {
+            "type": "object",
+            "properties": {
+                "fullname": {
+                    "type":"string"
+                },
+                "email": {
+                    "type":"string"
+                },
+                "password": {
+                    "type":"string"
+                },
+                "role": {
+                    "type":"string"
+                }
+            }
+        }
+    }
+}

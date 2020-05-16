@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 const app = express();
 const categoryRoutes = require("./api/routes/category");
 const lessonRoutes = require("./api/routes/lesson");
 const userRoutes = require("./api/routes/user");
 const subjectRoutes = require("./api/routes/subject");
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 mongoose.set('useCreateIndex', true);
@@ -36,7 +39,7 @@ app.use((error, req, res, next) => {
 mongoose.connect("mongodb+srv://Gandhi:RGandhi@cluster0-hnuxn.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(_result => {
 console.log("Database connected");
-let port_number = app.listen(process.env.PORT || 3000);
+let port_number = app.listen(process.env.PORT || 3001);
 app.listen(port_number);
 }).catch(err => console.log(err));
 
