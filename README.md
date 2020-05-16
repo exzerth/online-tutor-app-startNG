@@ -2,4 +2,4 @@
 
 Heroku Link: https://gandhi-tutor0app.herokuapp.com/
 
-Documentation: /api-docs
+Documentation: https://gandhi-tutor0app.herokuapp.com/api-docs/
